@@ -471,31 +471,31 @@ namespace Empresa
                         
                         break;
 
-                    case '8':
-                        if (sistema.LstClientes.Count == 0)
-                        {
-                            Console.WriteLine("");
-                            Console.WriteLine("No existen clientes");
+                    //case '8':
+                    //    if (sistema.LstClientes.Count == 0)
+                    //    {
+                    //        Console.WriteLine("");
+                    //        Console.WriteLine("No existen clientes");
 
-                        }
-                        else
-                        {
-                            Console.WriteLine("");
-                            Console.WriteLine("Ingrese el numero de identificacion del cliente:");
-                            int.TryParse(Console.ReadLine(), out nrocliente);
-                            cliente = sistema.LstClientes.Find(x => x.Dni == nrocliente);
-                            if (cliente == null)
-                            {
-                                Console.WriteLine("Cliente inexistente");
-                            }
-                            else
-                            {
-                                Console.WriteLine("----TODAS LAS FACTURAS DEL CLIENTE: {0}, {1}----", cliente.Apellido, cliente.Nombre);
-                                sistema.mostrarLstFacturas(cliente);
-                            }
-                        }
+                    //    }
+                    //    else
+                    //    {
+                    //        Console.WriteLine("");
+                    //        Console.WriteLine("Ingrese el numero de identificacion del cliente:");
+                    //        int.TryParse(Console.ReadLine(), out nrocliente);
+                    //        cliente = sistema.LstClientes.Find(x => x.Dni == nrocliente);
+                    //        if (cliente == null)
+                    //        {
+                    //            Console.WriteLine("Cliente inexistente");
+                    //        }
+                    //        else
+                    //        {
+                    //            Console.WriteLine("----TODAS LAS FACTURAS DEL CLIENTE: {0}, {1}----", cliente.Apellido, cliente.Nombre);
+                    //            sistema.mostrarLstFacturas(cliente);
+                    //        }
+                    //    }
                         
-                        break;
+                    //    break;
 
                 }
 

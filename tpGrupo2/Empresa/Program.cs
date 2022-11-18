@@ -23,17 +23,18 @@ namespace Empresa
                 Console.WriteLine("[2] - Mostrar datos de todos los clientes.");
                 Console.WriteLine("[3] - Mostrar datos de un cliente.");
                 Console.WriteLine("[4] - Ingrese un nuevo Paquete."); 
-                //Console.WriteLine("[5] - Dar de baja un paquete.");
+          
                 Console.WriteLine("[5] - Mostrar Paquetes activos.");
                 Console.WriteLine("[6] - Crear nueva factura.");
                 Console.WriteLine("[7] - Mostrar todas las facturas.");
                 Console.WriteLine("[8] - Mostrar todas las facturas de un cliente.");
+                Console.WriteLine("[9] - Eliminar cliente.");
                 Console.WriteLine("Esc - Salir");
 
                 do
                 {
                     opcion = Console.ReadKey(true);
-                } while (((int)opcion.KeyChar != 27) && (opcion.KeyChar < '1' || opcion.KeyChar > '8'));
+                } while (((int)opcion.KeyChar != 27) && (opcion.KeyChar < '1' || opcion.KeyChar > '9'));
 
 
                 switch (opcion.KeyChar)
@@ -471,31 +472,53 @@ namespace Empresa
                         
                         break;
 
-                    //case '8':
-                    //    if (sistema.LstClientes.Count == 0)
-                    //    {
-                    //        Console.WriteLine("");
-                    //        Console.WriteLine("No existen clientes");
+                    case '8':
+                        if (sistema.LstClientes.Count == 0)
+                        {
+                            Console.WriteLine("");
+                            Console.WriteLine("No existen clientes");
 
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("");
-                    //        Console.WriteLine("Ingrese el numero de identificacion del cliente:");
-                    //        int.TryParse(Console.ReadLine(), out nrocliente);
-                    //        cliente = sistema.LstClientes.Find(x => x.Dni == nrocliente);
-                    //        if (cliente == null)
-                    //        {
-                    //            Console.WriteLine("Cliente inexistente");
-                    //        }
-                    //        else
-                    //        {
-                    //            Console.WriteLine("----TODAS LAS FACTURAS DEL CLIENTE: {0}, {1}----", cliente.Apellido, cliente.Nombre);
-                    //            sistema.mostrarLstFacturas(cliente);
-                    //        }
-                    //    }
-                        
-                    //    break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                            Console.WriteLine("Ingrese el numero de identificacion del cliente:");
+                            int.TryParse(Console.ReadLine(), out nrocliente);
+                            cliente = sistema.LstClientes.Find(x => x.Dni == nrocliente);
+                            if (cliente == null)
+                            {
+                                Console.WriteLine("Cliente inexistente");
+                            }
+                            else
+                            {
+                                Console.WriteLine("----TODAS LAS FACTURAS DEL CLIENTE: {0}, {1}----", cliente.Apellido, cliente.Nombre);
+                                sistema.mostrarLstFacturas(cliente);
+                            }
+                        }
+
+                        break;
+
+                    case '9':
+
+
+                        Console.WriteLine("");
+                        Console.WriteLine("Ingrese el numero de identificacion del cliente:");
+                        int.TryParse(Console.ReadLine(), out nrocliente);
+                        cliente = sistema.LstClientes.Find(x => x.Dni == nrocliente);
+
+                        if (cliente == null)
+                        {
+                            Console.WriteLine("Cliente inexistente");
+                        }
+                        else
+                        {
+                            var dniEliminar = sistema.LstClientes.Remove(cliente);
+                            Console.WriteLine("El cliente se elimino correctamente.");
+                        }
+
+
+                        break;
+
 
                 }
 

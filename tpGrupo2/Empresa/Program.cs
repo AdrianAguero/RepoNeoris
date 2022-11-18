@@ -23,7 +23,6 @@ namespace Empresa
                 Console.WriteLine("[2] - Mostrar datos de todos los clientes.");
                 Console.WriteLine("[3] - Mostrar datos de un cliente.");
                 Console.WriteLine("[4] - Ingrese un nuevo Paquete."); 
-          
                 Console.WriteLine("[5] - Mostrar Paquetes activos.");
                 Console.WriteLine("[6] - Crear nueva factura.");
                 Console.WriteLine("[7] - Mostrar todas las facturas.");
@@ -124,6 +123,10 @@ namespace Empresa
                                         Particular p = new Particular(id, nrocliente, apellido, nombre, nacionalidad, provincia, direccion, telefono);
                                         sistema.LstClientes.Add(p);
                                         RepositorioCliente.agregar(p);
+
+                                        Console.WriteLine("*****El cliente particular se agregó correctamente.*****");
+
+
                                         break;
 
                                     case '2':
@@ -135,6 +138,8 @@ namespace Empresa
                                         Corporativa cor = new Corporativa(id, nrocliente, apellido, nombre, nacionalidad, provincia, direccion, telefono, razonSocial, cuit);
                                         sistema.LstClientes.Add(cor);
                                         RepositorioCliente.agregar(cor);
+
+                                        Console.WriteLine("*****El cliente corporativo se agregó correctamente.*****");
                                         break;
                                 }
 
@@ -344,25 +349,6 @@ namespace Empresa
 
                         break;
 
-
-                    /*case '5':
-                        Console.WriteLine("PAQUETES ACTIVOS");
-                        sistema.mostrarLstPaquetesActivos();
-                        Console.WriteLine("Ingrese el identificador del paquete a dar de baja");
-                        int.TryParse(Console.ReadLine(), out id);
-                        PaquetesVendidos pv = sistema.LstPaquetes.Find(x => x.Id == id && x.Activo);
-                        if (pv == null)
-                        {
-                            Console.WriteLine("Paquete solicitado no se encuentra o no esta activo");
-                        }
-                        else
-                        {
-                            pv.Activo = false;
-                            Console.WriteLine("NO SE VOLVERA A MOSTRAR EN PAQUETES ACTIVOS");
-                        }
-
-                        break;*/
-
                     case '5':
                         
                         if (sistema.LstPaquetes.Count == 0)
@@ -514,7 +500,7 @@ namespace Empresa
                         else
                         {
                             var dniEliminar = sistema.LstClientes.Remove(cliente);
-                            Console.WriteLine("El cliente se elimino correctamente.");
+                            Console.WriteLine("*****El cliente se elimino correctamente.*****");
                         }
 
 
